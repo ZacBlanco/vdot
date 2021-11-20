@@ -1,0 +1,193 @@
+<form id="vdot-calc">
+  <div class="row mb-2">
+    <label for="time" class="col-sm-2 col-form-label">time</label>
+    <div class="col-sm-2">
+      <input type="dropdown" class="form-control" id="time">
+    </div>
+    <label for="race" class="col-sm-2 col-form-label">race type</label>
+    <div class="col-sm-2">
+      <select class="form-select form-control" aria-label="race selector" id="race">
+        <option value="1500">1500m</option>
+        <option value="1609">mile</option>
+        <option value="3000">3000m</option>
+        <option value="3218">2 mile</option>
+        <option value="5000" selected>5k</option>
+        <option value="8045">10 mile</option>
+        <option value="10000">10k</option>
+        <option value="15000">15k</option>
+        <option value="16090">10 mile</option>
+        <option value="20000">20k</option>
+        <option value="210975">half marathon</option>
+        <option value="25000">25k</option>
+        <option value="30000">30k</option>
+        <option value="421950">marathon</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <label for="vdot" class="col-sm-2 col-form-label">vdot</label>
+    <div class="col-sm-8">
+      <input type="range" class="form-range" min="30" max="85" step="1" id="vdot-range">
+    </div>
+  </div>
+  <hr>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <h5>estimated race times</h5>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">race</th>
+            <th scope="col">time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1500m</td>
+            <td id="calc-race-pred-1500"></td>
+          </tr>
+          <tr>
+            <td>mile</td>
+            <td id="calc-race-pred-1609"></td>
+          </tr>
+          <tr>
+            <td>3000m</td>
+            <td id="calc-race-pred-3000"></td>
+          </tr>
+          <tr>
+            <td>2 mile</td>
+            <td id="calc-race-pred-3218"></td>
+          </tr>
+          <tr>
+            <td>5k</td>
+            <td id="calc-race-pred-5000"></td>
+          </tr>
+          <tr>
+            <td>10 mile</td>
+            <td id="calc-race-pred-8045"></td>
+          </tr>
+          <tr>
+            <td>10k</td>
+            <td id="calc-race-pred-10000"></td>
+          </tr>
+          <tr>
+            <td>15k</td>
+            <td id="calc-race-pred-15000"></td>
+          </tr>
+          <tr>
+            <td>10 mile</td>
+            <td id="calc-race-pred-16090"></td>
+          </tr>
+          <tr>
+            <td>20k</td>
+            <td id="calc-race-pred-20000"></td>
+          </tr>
+          <tr>
+            <td>half marathon</td>
+            <td id="calc-race-pred-210975"></td>
+          </tr>
+          <tr>
+            <td>25k</td>
+            <td id="calc-race-pred-25000"></td>
+          </tr>
+          <tr>
+            <td>30k</td>
+            <td id="calc-race-pred-30000"></td>
+          </tr>
+          <tr>
+            <td>marathon</td>
+            <td id="calc-race-pred-421950"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-6">
+      <h5>training paces</h5>
+      <div class="list-group">
+        <div class="list-group-item list-group-item-action">
+          <div class="">
+            <h5 class="mb-1">E pace</h5>
+          </div>
+          <table class="table table-sm">
+            <thead>
+              <tr><th>mile</th><th>km</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="calc-pace-E-mile"></td>
+                <td id="calc-pace-E-km"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="list-group-item list-group-item-action">
+          <div class="">
+            <h5 class="mb-1">M pace</h5>
+          </div>
+          <table class="table table-sm">
+            <thead>
+              <tr><th>mile</th><th>km</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="calc-pace-M-mile"></td>
+                <td id="calc-pace-M-km"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="list-group-item list-group-item-action">
+          <div class="">
+            <h5 class="mb-1">T pace</h5>
+          </div>
+          <table class="table table-sm">
+            <thead>
+              <tr><th>mile</th><th>km</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="calc-pace-T-mile"></td>
+                <td id="calc-pace-T-km"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="list-group-item list-group-item-action">
+          <div class="">
+            <h5 class="mb-1">I pace</h5>
+          </div>
+          <table class="table table-sm">
+            <thead>
+              <tr><th>distance</th><th>time</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>200</td><td id="calc-pace-I-200"></td></tr>
+                <tr><td>400</td><td id="calc-pace-I-400"></td></tr>
+                <tr><td>600</td><td id="calc-pace-I-600"></td></tr>
+                <tr><td>800</td><td id="calc-pace-I-800"></td></tr>
+                <tr><td>1000</td><td id="calc-pace-I-1000"></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="list-group-item list-group-item-action">
+          <div class="">
+            <h5 class="mb-1">R pace</h5>
+          </div>
+          <table class="table table-sm">
+            <thead>
+              <tr><th>distance</th><th>time</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>200</td><td id="calc-pace-R-200"></td></tr>
+              <tr><td>400</td><td id="calc-pace-R-400"></td></tr>
+              <tr><td>600</td><td id="calc-pace-R-600"></td></tr>
+              <tr><td>800</td><td id="calc-pace-R-800"></td></tr>
+              <tr><td>1000</td><td id="calc-pace-R-1000"></td></tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
