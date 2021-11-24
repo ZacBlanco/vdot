@@ -1,18 +1,18 @@
 <form id="vdot-calc">
   <div class="row mb-2">
-    <label for="time" class="col-sm-2 col-form-label">time</label>
+    <label for="time" class="col-sm-1 col-form-label">time</label>
     <div class="col-sm-2">
       <input type="dropdown" class="form-control" id="time">
     </div>
     <label for="race" class="col-sm-2 col-form-label">race type</label>
-    <div class="col-sm-2">
+    <div class="col-sm-4">
       <select class="form-select form-control" aria-label="race selector" id="race">
         <option value="1500">1500m</option>
         <option value="1609">mile</option>
         <option value="3000">3000m</option>
         <option value="3218">2 mile</option>
         <option value="5000" selected>5k</option>
-        <option value="8045">10 mile</option>
+        <option value="8045">5 mile</option>
         <option value="10000">10k</option>
         <option value="15000">15k</option>
         <option value="16090">10 mile</option>
@@ -25,9 +25,12 @@
     </div>
   </div>
   <div class="row">
-    <label for="vdot" class="col-sm-2 col-form-label">vdot</label>
-    <div class="col-sm-8">
-      <input type="range" class="form-range" min="30" max="85" step="1" id="vdot-range">
+    <label for="vdot-range" class="col-sm-1 col-form-label">vdot</label>
+    <div class="col-sm-6">
+      <input type="range" class="form-range" min="30" max="85" step="1" id="vdot-range" oninput="updateVdotLabel(this.value)" onchange="updateVdotLabel(this.value)">
+    </div>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" disabled id="vdot-number">
     </div>
   </div>
   <hr>
@@ -64,7 +67,11 @@
             <td id="calc-race-pred-5000"></td>
           </tr>
           <tr>
-            <td>10 mile</td>
+            <td>8k</td>
+            <td id="calc-race-pred-8000"></td>
+          </tr>
+          <tr>
+            <td>5 mile</td>
             <td id="calc-race-pred-8045"></td>
           </tr>
           <tr>
@@ -143,13 +150,13 @@
           </div>
           <table class="table table-sm">
             <thead>
-              <tr><th>mile</th><th>km</th></tr>
+              <tr><th>distance</th><th>time</th></tr>
             </thead>
             <tbody>
-              <tr>
-                <td id="calc-pace-T-mile"></td>
-                <td id="calc-pace-T-km"></td>
-              </tr>
+                <tr><td>400m</td><td id="calc-pace-T-400"></td></tr>
+                <tr><td>800m</td><td id="calc-pace-T-800"></td></tr>
+                <tr><td>1km</td><td id="calc-pace-T-1000"></td></tr>
+                <tr><td>mile</td><td id="calc-pace-T-mile"></td></tr>
             </tbody>
           </table>
         </div>
@@ -162,11 +169,10 @@
               <tr><th>distance</th><th>time</th></tr>
             </thead>
             <tbody>
-                <tr><td>200</td><td id="calc-pace-I-200"></td></tr>
-                <tr><td>400</td><td id="calc-pace-I-400"></td></tr>
-                <tr><td>600</td><td id="calc-pace-I-600"></td></tr>
-                <tr><td>800</td><td id="calc-pace-I-800"></td></tr>
-                <tr><td>1000</td><td id="calc-pace-I-1000"></td></tr>
+                <tr><td>400m</td><td id="calc-pace-I-400"></td></tr>
+                <tr><td>1km</td><td id="calc-pace-I-1000"></td></tr>
+                <tr><td>1200m</td><td id="calc-pace-I-1200"></td></tr>
+                <tr><td>mile</td><td id="calc-pace-I-mile"></td></tr>
             </tbody>
           </table>
         </div>
@@ -179,11 +185,11 @@
               <tr><th>distance</th><th>time</th></tr>
             </thead>
             <tbody>
-              <tr><td>200</td><td id="calc-pace-R-200"></td></tr>
-              <tr><td>400</td><td id="calc-pace-R-400"></td></tr>
-              <tr><td>600</td><td id="calc-pace-R-600"></td></tr>
-              <tr><td>800</td><td id="calc-pace-R-800"></td></tr>
-              <tr><td>1000</td><td id="calc-pace-R-1000"></td></tr>
+              <tr><td>200m</td><td id="calc-pace-R-200"></td></tr>
+              <tr><td>300m</td><td id="calc-pace-R-300"></td></tr>
+              <tr><td>400m</td><td id="calc-pace-R-400"></td></tr>
+              <tr><td>600m</td><td id="calc-pace-R-600"></td></tr>
+              <tr><td>800m</td><td id="calc-pace-R-800"></td></tr>
           </tbody>
           </table>
         </div>
