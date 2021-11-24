@@ -77,14 +77,6 @@ function updateTrainingPaces(vdot) {
   updateTrainingPace(vdot, "R", ["200", "300", "400", "600", "800"]);
 }
 
-function updateIPace(vdot) {
-
-}
-
-function updateRPace(vdot) {
-
-}
-
 function updateTrainingPace(vdot, pace, distances) {
   let idx = vdot - 30;
   for (distance of distances) {
@@ -103,6 +95,52 @@ function setVdotRange(vdot) {
   let element = document.getElementById("vdot-range");
   element.value = vdot;
   element.dispatchEvent(new Event('change'))
+}
+
+function parseTime(value) {
+  let vals = String(value).split(":")
+  let n = vals.length;
+  let secsAndMs = String(vals[n-1]).split(".");
+  let totalTime = 0;
+  let secs = secsAndMs[0]
+  if (secsAndMs.length > 1) {
+    totalTime += parseInt(secsAndMs[1]);
+  }
+  totalTime += parseInt(secs * 1000)
+  if (n > 1) {
+    let min = vals[n-2];
+    totalTime += 60 * 1000 * parseInt(min)
+  }
+  if (n > 2) {
+    let hr = vals[n-3];
+    totalTime += 60* 60 * 1000 * parseInt(hr)
+  }
+  return totalTime;
+}
+
+function doRaceSearch() {
+  debounce(loadVdotsForRaceTime, 250, false)
+}
+
+function loadVdotsForRaceTime() {
+  let time = document.getElementById("time")
+  let race = document.getElementById("race").value
+  let trueTime = parseTime(time.value)
+  let raceTimes = races[race];
+  let idx = Object.keys(raceTimes).reduce(closestReducer(trueTime, raceTimes))
+  setVdotRange(races["VDOT"][idx]);
+}
+
+function closestReducer(value, raceTimes) {
+  return function(prev, current) {
+    let prevDiff = Math.abs(value - raceTimes[prev]);
+    let currDiff = Math.abs(value - raceTimes[current]);
+    if (currDiff < prevDiff) {
+      return current;
+    } else {
+      return prev;
+    }
+  }
 }
 
 window.onload = (e) => {

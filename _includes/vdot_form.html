@@ -2,7 +2,7 @@
   <div class="row mb-2">
     <label for="time" class="col-sm-1 col-form-label">time</label>
     <div class="col-sm-2">
-      <input type="dropdown" class="form-control" id="time">
+      <input type="text" class="form-control" id="time" oninput="loadVdotsForRaceTime()" onchange="loadVdotsForRaceTime()">
     </div>
     <label for="race" class="col-sm-2 col-form-label">race type</label>
     <div class="col-sm-4">
@@ -116,7 +116,7 @@
           <div class="">
             <h5 class="mb-1">E pace</h5>
           </div>
-          <table class="table table-sm">
+          <table class="table table-sm mb-0">
             <thead>
               <tr><th>mile</th><th>km</th></tr>
             </thead>
@@ -132,7 +132,7 @@
           <div class="">
             <h5 class="mb-1">M pace</h5>
           </div>
-          <table class="table table-sm">
+          <table class="table table-sm mb-0">
             <thead>
               <tr><th>mile</th><th>km</th></tr>
             </thead>
@@ -148,7 +148,7 @@
           <div class="">
             <h5 class="mb-1">T pace</h5>
           </div>
-          <table class="table table-sm">
+          <table class="table table-sm mb-0">
             <thead>
               <tr><th>distance</th><th>time</th></tr>
             </thead>
@@ -164,7 +164,7 @@
           <div class="">
             <h5 class="mb-1">I pace</h5>
           </div>
-          <table class="table table-sm">
+          <table class="table table-sm mb-0">
             <thead>
               <tr><th>distance</th><th>time</th></tr>
             </thead>
@@ -180,7 +180,7 @@
           <div class="">
             <h5 class="mb-1">R pace</h5>
           </div>
-          <table class="table table-sm">
+          <table class="table table-sm mb-0">
             <thead>
               <tr><th>distance</th><th>time</th></tr>
             </thead>
